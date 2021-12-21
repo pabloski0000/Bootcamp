@@ -1,0 +1,48 @@
+body{
+    
+}
+header{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+h1{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+img{
+    display: block;
+    width: 20em;
+    margin: auto;
+}
+img + p{
+    text-align: center;
+}
+/*Structure*/
+.header__menu {
+}
+.nav_menu{
+    
+    background-color: aquamarine;
+}
+.nav_menu ul{
+    padding-inline-start: 0;
+}
+.nav_menu li{
+    display: block;
+    list-style: none;
+    border-bottom: black 0.1em solid;
+}
+.nav_menu li a{
+    text-decoration: none;
+    color: black;
+}
+@media print{
+    body{
+        font-size: 10pt;
+    }
+    input{
+        display: none;
+    }
+}
