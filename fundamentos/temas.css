@@ -23,7 +23,12 @@ img + p{
     text-align: center;
 }
 /*Structure*/
-.header__menu {
+header{
+    margin-bottom: 1em;
+}
+header h1{
+    font-size: 4em;
+    text-align: center;
 }
 .nav_menu--collapsible{
     background-color: rgb(255, 255, 255);
@@ -34,6 +39,9 @@ img + p{
 .nav_menu--collapsible input#collapsible_menu{
     display: none;
 }
+input:checked ~ .div_menu{
+    max-height: 100%;
+}
 .nav_menu--collapsible--checkable{
     color: white;
     background-color: black;
@@ -42,13 +50,15 @@ img + p{
 }
 .nav_menu--collapsible label{
     /*font-family: 'Sedgwick Ave Display', cursive;*/
-    font-size: 56px;
+    font-size: 3em;
     display: block;
     cursor: pointer;
     background: url(icons/collapsible_menu.png) no-repeat left center;
     padding: 10px 0 10px 50px;
 }
 .div_menu{
+    max-height: 0;
+    overflow: hidden;
     font-family: 'Oswald', sans-serif; 
     padding: 0 0 0 50px;
 }
