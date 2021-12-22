@@ -10,11 +10,15 @@
 <body>
     <header>
         <h1>Pizzeria</h1>
-        <nav class="nav_menu">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Basket</a></li>
-            </ul>
+        <nav class="nav_menu--collapsible">
+            <input type="checkbox" class="nav_menu--checkable" id="collapsible_menu"/>
+            <label for="collapsible_menu">Menu</label>
+            <div class="div_menu">
+                <ul class="ul_menu--foldable">
+                    <li><a href="#"></a>Home</li>
+                    <li><a href="#"></a>Basket</li>
+                </ul>
+            </div>
         </nav>
     </header>
     <section>

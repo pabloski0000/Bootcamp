@@ -1,3 +1,6 @@
+:root{
+    --visible-menu: none;
+}
 body{
     
 }
@@ -22,21 +25,41 @@ img + p{
 /*Structure*/
 .header__menu {
 }
-.nav_menu{
-    
-    background-color: aquamarine;
+.nav_menu--collapsible{
+    background-color: rgb(255, 255, 255);
+    padding: 0px 30px;
+    border-bottom: 3px solid #CDE700;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
 }
-.nav_menu ul{
-    padding-inline-start: 0;
+.nav_menu--collapsible input#collapsible_menu{
+    display: none;
 }
-.nav_menu li{
+.nav_menu--collapsible--checkable{
+    color: white;
+    background-color: black;
+    width: 5ch;
+    padding: 0.75em;
+}
+.nav_menu--collapsible label{
+    /*font-family: 'Sedgwick Ave Display', cursive;*/
+    font-size: 56px;
     display: block;
-    list-style: none;
-    border-bottom: black 0.1em solid;
+    cursor: pointer;
+    background: url(icons/collapsible_menu.png) no-repeat left center;
+    padding: 10px 0 10px 50px;
 }
-.nav_menu li a{
+.div_menu{
+    font-family: 'Oswald', sans-serif; 
+    padding: 0 0 0 50px;
+}
+.nav_menu--collapsible ul{
+    list-style-type: none;
+    padding: 0;
+}
+.nav_menu--collapsible li a{
+    display:block;
+    padding: 10px;
     text-decoration: none;
-    color: black;
 }
 @media print{
     body{
