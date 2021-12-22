@@ -1,9 +1,6 @@
 :root{
     --visible-menu: none;
 }
-body{
-    
-}
 header{
     display: block;
     margin-left: auto;
@@ -70,6 +67,15 @@ input:checked ~ .div_menu{
     display:block;
     padding: 10px;
     text-decoration: none;
+}
+.section__pizzas-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.section__pizzas-section article{
+    margin-left: 1em;
+    margin-right: 1em;
 }
 @media print{
     body{
