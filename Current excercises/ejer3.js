@@ -6,7 +6,7 @@ function returnArrayOfGivenLength(length, elementsOfArray){
 }
 
 button.addEventListener('click', () => {
-    let arrayOfIntegers = window.prompt('Introduce the length of the array and the elements you want it to contain in it. Separate them by commas').split(',');
+    let arrayOfIntegers = window.prompt('Introduce the length of the array and the elements you want it to contain. Separate them by commas').split(',');
     let elementsOfNewArray = arrayOfIntegers.slice(1);
     let newArray = returnArrayOfGivenLength(arrayOfIntegers[0], elementsOfNewArray);
     p.innerHTML = "Resultado: ".concat(newArray);
