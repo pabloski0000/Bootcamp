@@ -1,0 +1,17 @@
+{
+  "name": "fundamentos",
+  "version": "1.0.0",
+  "description": "Pizzeria",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.5.0"
+  }
+}

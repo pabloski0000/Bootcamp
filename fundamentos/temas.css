@@ -12,6 +12,7 @@ h1{
     margin-right: auto;
 }
 img{
+    aspect-ratio: attr(width) / attr(height);
     display: block;
     width: 20em;
     margin: auto;
