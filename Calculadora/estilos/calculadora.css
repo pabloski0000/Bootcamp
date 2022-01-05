@@ -17,14 +17,14 @@
     height: var(--calculadora-width) 56.25%;
     justify-content: space-around;
 }
-#resultado, #operacion_tiempo_real{
+#output_numero_grande, #output_numero_pequenyo{
     flex-basis: 100%;
     text-align: right;
 }
-#resultado{
+#output_numero_grande{
     font-size: 4em;
 }
-#operacion_tiempo_real{
+#output_numero_pequenyo{
     color: rgba(58, 56, 56, 0.822);
 }
 .boton_simbolo{
