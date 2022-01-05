@@ -1,0 +1,56 @@
+:root{
+    --calculadora-width: 30%;
+    --boton-simbolo-width-sin-simbolo-porcentaje: 23;
+    --boton-simbolo-width-con-simobolo-porcentaje: 24%;
+    --boton-simbolo-height-con-simbolo-porcentaje: (var(--boton-simbolo-width-sin-simbolo-porcentaje) * 0.5625)%;
+}
+#titulo_pagina{
+    text-align: center;
+}
+#calculadora{
+    margin: auto;
+    margin-top: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #f2f1f0b0;
+    width: 24%;
+    height: var(--calculadora-width) 56.25%;
+    justify-content: space-around;
+}
+#resultado, #operacion_tiempo_real{
+    flex-basis: 100%;
+    text-align: right;
+}
+#resultado{
+    font-size: 4em;
+}
+#operacion_tiempo_real{
+    color: rgba(58, 56, 56, 0.822);
+}
+.boton_simbolo{
+    width: var(--boton-simbolo-width-con-simobolo-porcentaje);
+    height: 70px;
+    margin: 2.5px 0;
+    border-width: 0;
+}
+.boton_operando, #boton_mas_menos, #boton_decimal{
+    background-color: #fcfcfc;
+}
+#boton_igual{
+    background-color: #88c3e0;
+}
+#menu_calculadora{
+    flex-basis: 10%;
+    text-align: center;
+}
+#estandar{
+    font-size: 1.25em;
+    flex-basis: 20%;
+    margin-top: 0;
+}
+#div_separacion_resultado_de_menu{
+    flex-basis: 70%;
+}
+#menu_calculadora, #estandar, #div_separacion_resultado_de_menu{
+    height: 24px;
+}
