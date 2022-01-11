@@ -12,7 +12,7 @@ let boton_igual;
 let output_numero_grande;
 let output_numero_pequenyo;
 const BOTONES_OPERANDO = [];
-let permitidoSumarRestarMultiplicarODividir = true;
+let limpiar = false;
 
 for(let elemento of ELEMENTOS_DENTRO_DE_CALCULADORA){
     if(elemento.className.includes('boton_operando')){
@@ -55,9 +55,9 @@ for(let elemento of ELEMENTOS_DENTRO_DE_CALCULADORA){
 (function agregarEventosABotonesOperando(){
     BOTONES_OPERANDO.forEach(elemento => elemento.addEventListener('click', function(){
         if(output_numero_grande.textContent.length < 9){
-            if(output_numero_grande.textContent === '0' || !permitidoSumarRestarMultiplicarODividir){
+            if(output_numero_grande.textContent === '0' || limpiar){
                 output_numero_grande.textContent = this.firstElementChild.textContent;
-                permitidoSumarRestarMultiplicarODividir = true;
+                limpiar = false;
                 return;
             }
             output_numero_grande.textContent += this.firstElementChild.textContent;
@@ -66,26 +66,49 @@ for(let elemento of ELEMENTOS_DENTRO_DE_CALCULADORA){
 })();
 (function agregarEventosABotonSuma(){
     boton_suma.addEventListener('click', function(){
-        if(permitidoSumarRestarMultiplicarODividir){
+        if(!limpiar){
             acumuladoOperandosAnteriores += textoANumero(output_numero_grande.textContent);
+            output_numero_grande.textContent = ''.concat(acumuladoOperandosAnteriores);
             output_numero_pequenyo.textContent = ''.concat(acumuladoOperandosAnteriores).concat(' +');
-            permitidoSumarRestarMultiplicarODividir = false;
+            limpiar = true;
         }
+        output_numero_pequenyo.textContent = ''.concat(acumuladoOperandosAnteriores).concat(' +');
     })
 })();
 (function agregarEventosABotonResta(){
     boton_resta.addEventListener('click', function(){
-        if(permitidoSumarRestarMultiplicarODividir){
+        if(limpiar){
             acumuladoOperandosAnteriores -= textoANumero(output_numero_grande.textContent);
             output_numero_pequenyo.textContent = ''.concat(acumuladoOperandosAnteriores).concat(' -');
-            permitidoSumarRestarMultiplicarODividir = false;
+            output_numero_grande.textContent = ''.concat(acumuladoOperandosAnteriores);
+            limpiar = false;
         }
     })
 })();
 (function agregarEventosABotonIgual(){
     boton_igual.addEventListener('click', function(){
-        acumuladoOperandosAnteriores -= textoANumero(output_numero_grande.textContent);
-        output_numero_pequenyo.textContent = ''.concat(acumuladoOperandosAnteriores).concat(' -');
+        let resumenOperacion;
+        let primerOperando = acumuladoOperandosAnteriores;
+        let segundoOperando = textoANumero(output_numero_grande.textContent);
+        if(output_numero_pequenyo.textContent.includes('+')){
+            acumuladoOperandosAnteriores += segundoOperando;
+            resumenOperacion = ''.concat(primerOperando).concat(' + ').concat(segundoOperando).concat(' =');
+        }else if(output_numero_pequenyo.textContent.includes('-')){
+            acumuladoOperandosAnteriores -= segundoOperando;
+            resumenOperacion = ''.concat(primerOperando).concat(' - ').concat(segundoOperando).concat(' =');
+        }else if(output_numero_pequenyo.textContent.includes('X')){
+            acumuladoOperandosAnteriores *= segundoOperando;
+            resumenOperacion = ''.concat(primerOperando).concat(' X ').concat(segundoOperando).concat(' =');
+        }else if(output_numero_pequenyo.textContent.includes('/')){
+            acumuladoOperandosAnteriores /= segundoOperando;
+            resumenOperacion = ''.concat(primerOperando).concat(' / ').concat(segundoOperando).concat(' =');
+        }else{
+            acumuladoOperandosAnteriores = segundoOperando;
+            resumenOperacion = '= ';
+        }
+        output_numero_pequenyo.textContent = resumenOperacion;
+        output_numero_grande.textContent = ''.concat(acumuladoOperandosAnteriores);
+        limpiar = true;
     })
 })();
 function textoANumero(texto){
